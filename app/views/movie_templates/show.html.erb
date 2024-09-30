@@ -50,11 +50,11 @@
   </div>
 
   <div>
-    <label for="image_box">
+    <label for="image">
       Image
     </label>
 
-    <input type="text" id="image_box" name="query_image" value="<%= @the_movie.image %>">
+    <input type="text" id="image" name="query_image" value="<%= @the_movie.image %>">
   </div>
 
   <div>
@@ -105,14 +105,18 @@
     Image
   </dt>
   <dd>
-    <img src="<%= @the_movie.image %>" style="width:250px;">
+    <img src="<%= @the_movie.image %>" style="width:250px; ">
   </dd>
 
   <dt>
     Director
   </dt>
   <dd>
-    <%= @the_movie.director.name %>
+    <% if !@the_movie.director %>
+      <p>Uh oh! We weren't able to find a director for this movie.</p>
+    <% else %>
+      <%= @the_movie.director.name %>
+    <% end %>
   </dd>
 
   <dt>
