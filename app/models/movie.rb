@@ -14,7 +14,8 @@
 #
 class Movie < ApplicationRecord
   belongs_to :director
-
+  has_many :characters
+  
   def director
   my_director_id = self.director_id
 
